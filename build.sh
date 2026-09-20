@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
-git clone https://github.com/flutter/flutter.git -b stable --depth 1 ./flutter
-export PATH="$PATH:$(pwd)/flutter/bin"
-export FLUTTER_ALLOW_ROOT=true
+git clone https://github.com/flutter/flutter.git --depth 1 -b stable /tmp/flutter
+
+export PATH="$PATH:/tmp/flutter/bin"
 
 flutter config --enable-web
 flutter pub get
