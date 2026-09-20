@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/network/api_client.dart';
 import 'features/auth/data/auth_api.dart';
-import 'features/chat/chat_page.dart';
+import 'features/chat/junhyuk_chat_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class TalkToApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChatPage(),
+      home: JunhyukChatPage(),
     );
   }
 }

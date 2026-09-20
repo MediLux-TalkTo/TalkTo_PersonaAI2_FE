@@ -5,7 +5,7 @@ import '../../../core/network/api_client.dart';
 
 class ChatApi {
   Future<Map<String, dynamic>> createConversation({
-    String personaId = 'persona-grandma-001',
+    required String personaId,
     String channel = 'TEXT',
     String title = '주말 대화',
   }) async {
