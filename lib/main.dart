@@ -9,8 +9,8 @@ void main() async {
 
   try {
     final token = await AuthApi().login(
-      identifier: 'admin@talkto.local',
-      password: 'Admin1234!',
+      email: 'admin@talkto.dev',
+      password: 'admin@talkto',
     );
 
     ApiClient.setToken(token);

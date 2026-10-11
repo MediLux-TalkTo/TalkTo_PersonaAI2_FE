@@ -2,28 +2,26 @@ import '../../../core/network/api_client.dart';
 
 class AuthApi {
   Future<String> login({
-    required String identifier,
+    required String email,
     required String password,
   }) async {
     final response = await ApiClient.dio.post(
       '/auth/login',
       data: {
-        'identifier': identifier,
+        'email': email,
         'password': password,
       },
     );
 
-    final data = response.data['data'];
+    final responseBody = response.data;
 
-    if (data == null) {
-      throw Exception('login data가 없습니다: ${response.data}');
-    }
+    final data = responseBody['data'] ?? responseBody;
 
     final accessToken =
         data['accessToken'] ?? data['access_token'] ?? data['token'];
 
     if (accessToken == null) {
-      throw Exception('accessToken이 없습니다: $data');
+      throw Exception('accessToken이 없습니다. 로그인 응답 형식을 확인해주세요.');
     }
 
     return accessToken.toString();
