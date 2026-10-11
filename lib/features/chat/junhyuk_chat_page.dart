@@ -151,7 +151,7 @@ class _JunhyukChatPageState extends State<JunhyukChatPage> {
 
     final url = ttsAudioUrl.startsWith('http')
         ? ttsAudioUrl
-        : 'https://talkto-personaai-be-agcd.onrender.com$ttsAudioUrl';
+        : 'https://talkto-api-server-staging.onrender.com$ttsAudioUrl';
 
     try {
       await _audioPlayer.stop();
