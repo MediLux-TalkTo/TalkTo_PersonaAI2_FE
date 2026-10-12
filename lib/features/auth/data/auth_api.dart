@@ -13,17 +13,18 @@ class AuthApi {
       },
     );
 
-    final responseBody = response.data;
+    final data = response.data['data'];
 
-    final data = responseBody['data'] ?? responseBody;
-
-    final accessToken =
-        data['accessToken'] ?? data['access_token'] ?? data['token'];
-
-    if (accessToken == null) {
-      throw Exception('accessToken이 없습니다. 로그인 응답 형식을 확인해주세요.');
+    if (data == null) {
+      throw Exception('login data가 없습니다: ${response.data}');
     }
 
-    return accessToken.toString();
+    final bearerToken = data['bearerToken'];
+
+    if (bearerToken == null) {
+      throw Exception('bearerToken이 없습니다. 로그인 응답을 확인해주세요.');
+    }
+
+    return bearerToken.toString();
   }
 }
